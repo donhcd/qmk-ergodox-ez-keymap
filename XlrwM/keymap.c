@@ -15,8 +15,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_AUDIO_VOL_DOWN,                                KC_AUDIO_VOL_UP,KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_EQUAL,
     KC_GRAVE,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TT(1),                                          KC_MEDIA_PLAY_PAUSE,KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,
     MT(MOD_LCTL, KC_TAB),KC_A,           KC_S,           KC_D,           MT(MOD_LSFT, KC_F),KC_G,                                                                           KC_H,           MT(MOD_LSFT, KC_J),KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,
-    KC_LEFT_SHIFT,  KC_Z,           KC_X,           KC_C,           LT(2, KC_V),    KC_B,           MT(MOD_LSFT, KC_MEDIA_NEXT_TRACK),                                KC_MEDIA_PREV_TRACK,KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
-    KC_TRANSPARENT, KC_MEH,         LM(6,MOD_LGUI), KC_LEFT_ALT,    KC_LEFT_CTRL,                                                                                                   MT(MOD_LGUI, KC_SPACE),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_LEFT_SHIFT,  KC_Z,           KC_X,           KC_C,           LT(2, KC_V),    KC_B,           MT(MOD_LSFT, KC_MEDIA_NEXT_TRACK),                                KC_MEDIA_PREV_TRACK,KC_N,           LT(2, KC_M),    KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
+    KC_TRANSPARENT, KC_MEH,         LM(6,MOD_LGUI), KC_LEFT_ALT,    KC_LEFT_CTRL,                                                                                                   MT(MOD_LGUI, KC_SPACE),KC_TRANSPARENT, KC_TRANSPARENT, KC_LBRC,        KC_RBRC,
                                                                                                     KC_ESCAPE,      KC_BSPC,        KC_SCRL,        KC_ESCAPE,
                                                                                                                     LM(2,MOD_LGUI), MO(7),
                                                                                     KC_SPACE,       MT(MOD_LGUI, KC_ENTER),LGUI(KC_ENTER), CW_TOGG,        LT(3, KC_ENTER),KC_BSPC
@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
     KC_TRANSPARENT, DM_REC1,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_7,           KC_8,           KC_9,           KC_EQUAL,       KC_F12,
     KC_TRANSPARENT, DM_PLY1,        KC_LCBR,        KC_RCBR,        KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_4,           KC_5,           KC_6,           KC_PLUS,        KC_MINUS,
-    KC_TRANSPARENT, DM_RSTP,        KC_LBRC,        KC_RBRC,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           ST_MACRO_2,     KC_TRANSPARENT,
+    KC_TRANSPARENT, DM_RSTP,        KC_LBRC,        KC_RBRC,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_2,           KC_3,           ST_MACRO_2,     KC_TRANSPARENT,
     KC_TRANSPARENT, KC_EQUAL,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_0,           KC_DOT,         KC_DOT,         KC_DOT,         KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
@@ -122,8 +122,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LSFT, KC_F):
             return TAPPING_TERM -50;
-        case LT(2, KC_V):
-            return TAPPING_TERM -50;
         case KC_LEFT_CTRL:
             return TAPPING_TERM -65;
         case KC_SPACE:
@@ -132,8 +130,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM -45;
         case MT(MOD_LSFT, KC_J):
             return TAPPING_TERM -50;
-        case KC_M:
-            return TAPPING_TERM + 50;
         case MT(MOD_LGUI, KC_SPACE):
             return TAPPING_TERM -20;
         case CW_TOGG:
