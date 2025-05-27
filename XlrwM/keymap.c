@@ -102,6 +102,22 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo1, LCTL(KC_A)),
 };
 
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodox_pretty(
+    'L', 'L',           'L',           'L',           'L',           'L',           'L',
+    'R','R',           'R',           'R',           'R',           'R',           'R',
+    'L',       'L',           'L',           'L',           'L',           'L',           'L',
+  'R','R',           'R',           'R',           'R',           'R',           'R',
+    'L','L',           'L',           'L',           'L','L',
+  'R',           'R','R',           'R',           'R',        'R',
+    'L',  'L',           'L',           'L',           'L',    'L',           'L',
+  'R','R',           'R',           'R',       'R',         'R',       'R',
+    'L', 'L',         'L', 'L',    'L',
+  'R','R', 'R', 'R', 'R',
+                                                                                                    '*',      '*',        '*',        '*',
+                                                                                                                    '*', '*',
+                                                                                    '*',       '*','*', '*',        '*','*'
+  );
+
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LSFT, KC_F):
