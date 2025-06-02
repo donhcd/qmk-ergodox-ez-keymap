@@ -24,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_MEH,         LM(6,MOD_LGUI), KC_LEFT_ALT,    KC_LEFT_CTRL,                                                                                                   MT(MOD_LGUI, KC_SPACE),KC_TRANSPARENT, KC_TRANSPARENT, KC_LBRC,        KC_RBRC,
                                                                                                     KC_ESCAPE,      KC_BSPC,        KC_SCRL,        KC_ESCAPE,
                                                                                                                     LGUI(KC_ENTER), MO(7),
-                                                                                    MT(MOD_LCTL, KC_SPACE),MT(MOD_LGUI, KC_ENTER),LM(2,MOD_LGUI), CW_TOGG,        LT(3, KC_ENTER),MT(MOD_LSFT, KC_BSPC)
+                                                                                    KC_SPACE,       MT(MOD_LGUI, KC_ENTER),LM(2,MOD_LGUI), KC_LEFT_SHIFT,  LT(3, KC_ENTER),KC_BSPC
   ),
   [1] = LAYOUT_ergodox_pretty(
     KC_GRAVE,       KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_AUDIO_VOL_DOWN,                                KC_AUDIO_VOL_UP,KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_LPRN,        KC_RPRN,        KC_MINUS,
@@ -113,7 +113,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM -50;
         case KC_LEFT_CTRL:
             return TAPPING_TERM -65;
-        case MT(MOD_LCTL, KC_SPACE):
+        case KC_SPACE:
             return TAPPING_TERM + 20;
         case MT(MOD_LGUI, KC_ENTER):
             return TAPPING_TERM -45;
@@ -121,10 +121,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM -50;
         case MT(MOD_LGUI, KC_SPACE):
             return TAPPING_TERM -20;
-        case CW_TOGG:
+        case KC_LEFT_SHIFT:
             return TAPPING_TERM -50;
-        case MT(MOD_LSFT, KC_BSPC):
+        case KC_BSPC:
             return TAPPING_TERM + 50;
+        case MT(MOD_LCTL, KC_SPACE):
+            return TAPPING_TERM + 20;
         default:
             return TAPPING_TERM;
     }
