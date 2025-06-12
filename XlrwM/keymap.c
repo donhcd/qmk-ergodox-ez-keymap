@@ -99,22 +99,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
-const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodox(
-  'L', 'L', 'L', 'L', 'L', 'L', 'L', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'L', 
-  'L', 'L', 'L', 'L', 'L', 'L', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'L', 
-  'L', 'L', 'L', 'L', 'L',
-  'L', 'L',
-  'L', 'L', 'L', 'L',
-  'R', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'R', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'R', 'R', 'R', 'R', 'R', 'R', 
-  'R', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'R', 'R', 'R', 'R', 'R', 
-  'R', 'R', 
-  'R', 'R', 'R', 'R'
-);
+// const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodox(
+//  'L', 'L', 'L', 'L', 'L', 'L', 'L', 
+//  'L', 'L', 'L', 'L', 'L', 'L', 'L', 
+//  'L', 'L', 'L', 'L', 'L', 'L', 
+//  'L', 'L', 'L', 'L', 'L', 'L', 'L', 
+//  'L', 'L', 'L', 'L', 'L',
+//  'L', 'L',
+//  'L', 'L', 'L', 'L',
+//  'R', 'R', 'R', 'R', 'R', 'R', 'R', 
+//  'R', 'R', 'R', 'R', 'R', 'R', 'R', 
+//  'R', 'R', 'R', 'R', 'R', 'R', 
+//  'R', 'R', 'R', 'R', 'R', 'R', 'R', 
+//  'R', 'R', 'R', 'R', 'R', 
+//  'R', 'R', 
+//  'R', 'R', 'R', 'R'
+//);
 
 const uint16_t PROGMEM combo0[] = { KC_A, KC_S, KC_D, MT(MOD_LSFT, KC_F), COMBO_END};
 const uint16_t PROGMEM combo1[] = { MT(MOD_LSFT, KC_J), KC_K, KC_L, KC_SCLN, COMBO_END};
