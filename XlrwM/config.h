@@ -5,7 +5,7 @@
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define HOLD_ON_OTHER_KEY_PRESS
-#define SERIAL_NUMBER "XlrwM/Rjq0Kx"
+#define SERIAL_NUMBER "XlrwM/ManpMr"
 #define LAYER_STATE_16BIT
 #define COMBO_COUNT 2
 
