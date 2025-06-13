@@ -5,6 +5,7 @@ enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
   ST_MACRO_0,
   ST_MACRO_1,
+  ST_MACRO_2,
 };
 
 
@@ -40,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
     KC_TRANSPARENT, DM_REC1,        KC_LPRN,        KC_RPRN,        KC_BSLS,        KC_PIPE,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_7,           KC_8,           KC_9,           KC_EQUAL,       KC_F12,
     KC_TRANSPARENT, DM_PLY1,        KC_LCBR,        KC_RCBR,        KC_EQUAL,       KC_PLUS,                                                                        KC_TRANSPARENT, KC_4,           KC_5,           KC_6,           KC_PLUS,        KC_MINUS,
-    KC_TRANSPARENT, DM_RSTP,        KC_LBRC,        KC_RBRC,        KC_TRANSPARENT, KC_MINUS,       KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           ST_MACRO_1,     KC_TRANSPARENT,
+    KC_TRANSPARENT, DM_RSTP,        KC_LBRC,        KC_RBRC,        KC_TRANSPARENT, KC_MINUS,       ST_MACRO_1,                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           ST_MACRO_2,     KC_TRANSPARENT,
     KC_TRANSPARENT, KC_EQUAL,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_DOT,         KC_DOT,         KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
@@ -152,6 +153,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     break;
     case ST_MACRO_1:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LSFT(SS_TAP(X_S))SS_DELAY(10)  SS_LSFT(SS_TAP(X_I))SS_DELAY(10)  SS_LSFT(SS_TAP(X_G))SS_DELAY(10)  SS_TAP(X_MINUS));
+    }
+    break;
+    case ST_MACRO_2:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_EQUAL)SS_DELAY(100)  SS_LSFT(SS_TAP(X_DOT)));
     }
