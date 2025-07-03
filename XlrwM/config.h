@@ -1,12 +1,12 @@
-#define FLOW_TAP_TERM 100
+#define FLOW_TAP_TERM 80
 #define CHORDAL_HOLD
 #undef DEBOUNCE
 #define DEBOUNCE 30
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define HOLD_ON_OTHER_KEY_PRESS
-#define SERIAL_NUMBER "XlrwM/LvnOeq"
+#define SERIAL_NUMBER "XlrwM/qmyjOZ"
 #define LAYER_STATE_8BIT
-#define COMBO_COUNT 2
+#define COMBO_COUNT 4
 
 #define TAPPING_TERM_PER_KEY
