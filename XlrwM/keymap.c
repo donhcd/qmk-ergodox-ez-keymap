@@ -15,6 +15,7 @@ enum custom_keycodes {
   ST_MACRO_5,
   ST_MACRO_6,
   ST_MACRO_7,
+  ST_MACRO_8,
 };
 
 
@@ -23,6 +24,7 @@ enum tap_dance_codes {
   DANCE_1,
 };
 
+#define DUAL_FUNC_0 LT(12, KC_F1)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
@@ -33,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LM(5,MOD_LGUI), KC_MEH,         MO(6),          KC_LEFT_ALT,    KC_LEFT_CTRL,                                                                                                   KC_LEFT_SHIFT,  MO(2),          MT(MOD_LGUI, KC_SPACE),KC_TRANSPARENT, ST_MACRO_0,
                                                                                                     KC_ESCAPE,      LM(3,MOD_LGUI), KC_SCRL,        KC_ESCAPE,
                                                                                                                     LGUI(KC_ENTER), LM(6,MOD_LGUI),
-                                                                                    KC_SPACE,       MT(MOD_LGUI, KC_ENTER),KC_LEFT_SHIFT,  MO(6),          LT(3, KC_ENTER),KC_BSPC
+                                                                                    KC_SPACE,       DUAL_FUNC_0,    KC_LEFT_SHIFT,  MO(6),          LT(3, KC_ENTER),KC_BSPC
   ),
   [1] = LAYOUT_ergodox_pretty(
     KC_GRAVE,       KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_AUDIO_VOL_DOWN,                                KC_AUDIO_VOL_UP,KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_LPRN,        KC_RPRN,        KC_MINUS,
@@ -117,14 +119,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 const uint16_t PROGMEM combo0[] = { KC_A, KC_S, KC_D, MT(MOD_LSFT, KC_F), COMBO_END};
 const uint16_t PROGMEM combo1[] = { MT(MOD_LSFT, KC_J), KC_K, KC_L, KC_SCLN, COMBO_END};
-const uint16_t PROGMEM combo2[] = { KC_Z, KC_X, KC_C, LT(2, KC_V), COMBO_END};
-const uint16_t PROGMEM combo3[] = { KC_LPRN, KC_RPRN, KC_SCLN, KC_COLN, COMBO_END};
+const uint16_t PROGMEM combo2[] = { KC_LPRN, KC_RPRN, KC_SCLN, KC_COLN, COMBO_END};
+const uint16_t PROGMEM combo3[] = { KC_TILD, KC_SLASH, KC_ASTR, KC_BSLS, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_ESCAPE),
     COMBO(combo1, LCTL(KC_A)),
-    COMBO(combo2, KC_BSPC),
-    COMBO(combo3, ST_MACRO_7),
+    COMBO(combo2, ST_MACRO_7),
+    COMBO(combo3, ST_MACRO_8),
 };
 
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodox_pretty(
@@ -146,15 +148,15 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodo
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LSFT, KC_F):
-            return TAPPING_TERM -50;
+            return TAPPING_TERM -60;
         case KC_LEFT_CTRL:
             return TAPPING_TERM -65;
         case KC_SPACE:
             return TAPPING_TERM + 20;
-        case MT(MOD_LGUI, KC_ENTER):
-            return TAPPING_TERM -45;
+        case DUAL_FUNC_0:
+            return TAPPING_TERM -70;
         case MT(MOD_LSFT, KC_J):
-            return TAPPING_TERM -50;
+            return TAPPING_TERM -60;
         case KC_BSPC:
             return TAPPING_TERM + 50;
         case MT(MOD_LCTL, KC_SPACE):
@@ -207,7 +209,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_TAP(X_LBRC)SS_DELAY(5)  SS_TAP(X_RBRC)SS_DELAY(5)  SS_LSFT(SS_TAP(X_9))SS_DELAY(5)  SS_LSFT(SS_TAP(X_0))SS_DELAY(5)  SS_TAP(X_LEFT)SS_DELAY(5)  SS_TAP(X_LEFT)SS_DELAY(5)  SS_TAP(X_LEFT));
     }
     break;
+    case ST_MACRO_8:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL(SS_TAP(X_A))SS_DELAY(5)  SS_TAP(X_RBRC));
+    }
+    break;
 
+    case DUAL_FUNC_0:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
+          register_code16(KC_LEFT_GUI);
+        } else {
+          unregister_code16(KC_LEFT_GUI);
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_LEFT_SHIFT);
+        } else {
+          unregister_code16(KC_LEFT_SHIFT);
+        }  
+      }  
+      return false;
   }
   return true;
 }
