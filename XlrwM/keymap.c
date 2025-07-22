@@ -24,7 +24,6 @@ enum tap_dance_codes {
   DANCE_1,
 };
 
-#define DUAL_FUNC_0 LT(12, KC_F1)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
@@ -35,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LM(5,MOD_LGUI), KC_MEH,         MO(6),          KC_LEFT_ALT,    KC_LEFT_CTRL,                                                                                                   KC_LEFT_SHIFT,  MO(2),          MT(MOD_LGUI, KC_SPACE),KC_TRANSPARENT, ST_MACRO_0,
                                                                                                     KC_ESCAPE,      LM(3,MOD_LGUI), KC_SCRL,        KC_ESCAPE,
                                                                                                                     LGUI(KC_ENTER), LM(6,MOD_LGUI),
-                                                                                    KC_SPACE,       DUAL_FUNC_0,    KC_LEFT_SHIFT,  MO(6),          LT(3, KC_ENTER),KC_BSPC
+                                                                                    KC_SPACE,       MT(MOD_LSFT, KC_ENTER),KC_LEFT_SHIFT,  MO(6),          LT(3, KC_ENTER),KC_BSPC
   ),
   [1] = LAYOUT_ergodox_pretty(
     KC_GRAVE,       KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_AUDIO_VOL_DOWN,                                KC_AUDIO_VOL_UP,KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_LPRN,        KC_RPRN,        KC_MINUS,
@@ -137,10 +136,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM -65;
         case KC_SPACE:
             return TAPPING_TERM + 20;
-        case DUAL_FUNC_0:
+        case MT(MOD_LSFT, KC_ENTER):
             return TAPPING_TERM -70;
         case MT(MOD_LSFT, KC_J):
             return TAPPING_TERM -60;
+        case LT(3, KC_ENTER):
+            return TAPPING_TERM -68;
         case KC_BSPC:
             return TAPPING_TERM + 50;
         case MT(MOD_LCTL, KC_SPACE):
@@ -199,21 +200,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     break;
 
-    case DUAL_FUNC_0:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_LEFT_GUI);
-        } else {
-          unregister_code16(KC_LEFT_GUI);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(KC_LEFT_SHIFT);
-        } else {
-          unregister_code16(KC_LEFT_SHIFT);
-        }  
-      }  
-      return false;
   }
   return true;
 }
