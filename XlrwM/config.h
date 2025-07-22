@@ -3,9 +3,10 @@
 #undef DEBOUNCE
 #define DEBOUNCE 30
 
+#define PERMISSIVE_HOLD
+
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define HOLD_ON_OTHER_KEY_PRESS
-#define SERIAL_NUMBER "XlrwM/Ja0eVZ"
+#define SERIAL_NUMBER "XlrwM/orGADQ"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 4
 
