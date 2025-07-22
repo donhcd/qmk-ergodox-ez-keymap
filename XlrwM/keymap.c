@@ -31,9 +31,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRAVE,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TT(1),                                          KC_MEDIA_PLAY_PAUSE,KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,
     MT(MOD_LCTL, KC_TAB),KC_A,           KC_S,           KC_D,           MT(MOD_LSFT, KC_F),KC_G,                                                                           KC_H,           MT(MOD_LSFT, KC_J),KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,
     KC_LEFT_SHIFT,  KC_Z,           KC_X,           KC_C,           LT(2, KC_V),    KC_B,           MT(MOD_LSFT, KC_MEDIA_NEXT_TRACK),                                KC_MEDIA_PREV_TRACK,KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
-    LM(5,MOD_LGUI), KC_MEH,         MO(6),          KC_LEFT_ALT,    KC_LEFT_CTRL,                                                                                                   KC_LEFT_SHIFT,  MO(2),          MT(MOD_LGUI, KC_SPACE),KC_TRANSPARENT, ST_MACRO_0,
+    LM(5,MOD_LGUI), KC_MEH,         KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_CTRL,                                                                                                   KC_LEFT_SHIFT,  MO(2),          MT(MOD_LGUI, KC_SPACE),KC_TRANSPARENT, ST_MACRO_0,
                                                                                                     KC_ESCAPE,      LM(3,MOD_LGUI), KC_SCRL,        KC_ESCAPE,
-                                                                                                                    LGUI(KC_ENTER), LM(6,MOD_LGUI),
+                                                                                                                    MO(6),          LM(6,MOD_LGUI),
                                                                                     KC_SPACE,       MT(MOD_LGUI | MOD_LSFT, KC_ENTER),KC_LEFT_SHIFT,  MO(6),          LT(3, KC_ENTER),KC_BSPC
   ),
   [1] = LAYOUT_ergodox_pretty(
