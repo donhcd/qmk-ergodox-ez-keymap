@@ -115,7 +115,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //   '*', '*',
 //   '*', '*', '*', '*'
 // );
-
 const uint16_t PROGMEM combo0[] = { KC_A, KC_S, KC_D, MT(MOD_LSFT, KC_F), COMBO_END};
 const uint16_t PROGMEM combo1[] = { MT(MOD_LSFT, KC_J), KC_K, KC_L, KC_SCLN, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_LPRN, KC_RPRN, KC_SCLN, KC_COLN, COMBO_END};
@@ -362,3 +361,16 @@ tap_dance_action_t tap_dance_actions[] = {
         [DANCE_0] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_0, dance_0_finished, dance_0_reset),
         [DANCE_1] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
 };
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // for some reason DUAL_FUNC_0 can't be used here
+        case LT(12, KC_F1):
+        case LT(3, KC_ENTER):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
+    }
+}
