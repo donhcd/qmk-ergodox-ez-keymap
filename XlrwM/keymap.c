@@ -88,8 +88,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [6] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    ST_MACRO_4,     ST_MACRO_5,     ST_MACRO_6,     KC_LABK,        KC_RABK,        KC_DQUO,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_UNDS,        KC_LCBR,        KC_RCBR,        KC_DLR,         KC_PIPE,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_EXLM,        KC_MINUS,       KC_PLUS,        KC_EQUAL,       KC_HASH,                                                                        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_SCLN,        KC_COLN,        KC_TRANSPARENT,
+    ST_MACRO_4,     ST_MACRO_5,     ST_MACRO_6,     KC_LABK,        KC_RABK,        KC_DQUO,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_MINUS,       KC_LCBR,        KC_RCBR,        KC_DLR,         KC_PIPE,        KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_EXLM,        KC_UNDS,        KC_PLUS,        KC_EQUAL,       KC_HASH,                                                                        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_SCLN,        KC_COLN,        KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TILD,        KC_SLASH,       KC_ASTR,        KC_BSLS,        KC_AMPR,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_PERC,        KC_LBRC,        KC_RBRC,        KC_GRAVE,       KC_AT,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
