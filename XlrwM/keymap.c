@@ -30,9 +30,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRAVE,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TT(1),                                          KC_TRANSPARENT, KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,
     MT(MOD_LCTL, KC_TAB),KC_A,           KC_S,           KC_D,           MT(MOD_LSFT, KC_F),KC_G,                                                                           KC_H,           MT(MOD_LSFT, KC_J),KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,
     KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           LT(2, KC_V),    KC_B,           MO(2),                                          KC_TRANSPARENT, KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
-    LM(5,MOD_LGUI), KC_MEH,         KC_LEFT_GUI,    KC_LEFT_SHIFT,  KC_LEFT_CTRL,                                                                                                   KC_LEFT_SHIFT,  MO(2),          MT(MOD_LGUI, KC_SPACE),KC_TRANSPARENT, ST_MACRO_0,
+    LM(5,MOD_LGUI), KC_MEH,         KC_LEFT_GUI,    MO(6),          MT(MOD_LCTL, KC_ESCAPE),                                                                                                MT(MOD_LSFT, KC_ESCAPE),MO(2),          MT(MOD_LGUI, KC_SPACE),KC_TRANSPARENT, ST_MACRO_0,
                                                                                                     KC_ESCAPE,      LM(3,MOD_LGUI), KC_SCRL,        KC_ESCAPE,
-                                                                                                                    MO(6),          LM(6,MOD_LGUI),
+                                                                                                                    KC_LEFT_SHIFT,  LM(6,MOD_LGUI),
                                                                                     MT(MOD_LSFT, KC_SPACE),MT(MOD_LGUI, KC_ENTER),KC_LEFT_ALT,    MO(6),          LT(3, KC_ENTER),KC_BSPC
   ),
   [1] = LAYOUT_ergodox_pretty(
@@ -146,7 +146,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LSFT, KC_F):
             return TAPPING_TERM -60;
-        case KC_LEFT_CTRL:
+        case MT(MOD_LCTL, KC_ESCAPE):
             return TAPPING_TERM -65;
         case MT(MOD_LSFT, KC_SPACE):
             return TAPPING_TERM -30;
