@@ -361,6 +361,8 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         // for some reason DUAL_FUNC_0 can't be used here
         case LT(12, KC_F1):
         case LT(3, KC_ENTER):
+        case MT(MOD_LCTL, KC_ESCAPE):
+        case MT(MOD_LSFT, KC_ESCAPE):
             // Immediately select the hold action when another key is pressed.
             return true;
         default:
