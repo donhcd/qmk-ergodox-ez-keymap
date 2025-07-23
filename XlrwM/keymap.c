@@ -31,8 +31,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MT(MOD_LCTL, KC_TAB),KC_A,           KC_S,           KC_D,           MT(MOD_LSFT, KC_F),KC_G,                                                                           KC_H,           MT(MOD_LSFT, KC_J),KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,
     KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           LT(2, KC_V),    KC_B,           MO(2),                                          KC_TRANSPARENT, KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
     LM(5,MOD_LGUI), KC_MEH,         KC_TRANSPARENT, MO(6),          MT(MOD_LCTL, KC_ESCAPE),                                                                                                MT(MOD_LSFT, KC_ESCAPE),MO(2),          MT(MOD_LGUI, KC_SPACE),KC_TRANSPARENT, ST_MACRO_0,
-                                                                                                    KC_BSPC,        LM(3,MOD_LGUI), KC_SCRL,        KC_LEFT_GUI,
-                                                                                                                    KC_LEFT_GUI,    LM(6,MOD_LGUI),
+                                                                                                    KC_BSPC,        LM(3,MOD_LGUI), KC_SCRL,        KC_ESCAPE,
+                                                                                                                    LGUI(KC_ENTER), LM(6,MOD_LGUI),
                                                                                     MT(MOD_LSFT, KC_SPACE),MT(MOD_LGUI, KC_ENTER),KC_LEFT_ALT,    MO(6),          LT(3, KC_ENTER),KC_BSPC
   ),
   [1] = LAYOUT_ergodox_pretty(
