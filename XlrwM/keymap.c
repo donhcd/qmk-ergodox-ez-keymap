@@ -15,6 +15,7 @@ enum custom_keycodes {
   ST_MACRO_5,
   ST_MACRO_6,
   ST_MACRO_7,
+  ST_MACRO_8,
 };
 
 
@@ -88,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [6] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     ST_MACRO_3,     ST_MACRO_4,     ST_MACRO_5,     KC_LABK,        KC_RABK,        KC_DQUO,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_MINUS,       KC_LCBR,        KC_RCBR,        KC_DLR,         KC_PIPE,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_EXLM,        KC_UNDS,        KC_PLUS,        KC_EQUAL,       KC_HASH,                                                                        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_SCLN,        KC_COLN,        KC_TRANSPARENT,
+    ST_MACRO_6,     KC_EXLM,        KC_UNDS,        KC_PLUS,        KC_EQUAL,       KC_HASH,                                                                        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_SCLN,        KC_COLN,        KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TILD,        KC_SLASH,       KC_ASTR,        KC_BSLS,        KC_AMPR,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_PERC,        KC_LBRC,        KC_RBRC,        KC_GRAVE,       KC_AT,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -122,8 +123,8 @@ const uint16_t PROGMEM combo3[] = { KC_TILD, KC_SLASH, KC_ASTR, KC_BSLS, COMBO_E
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_ESCAPE),
     COMBO(combo1, LCTL(KC_A)),
-    COMBO(combo2, ST_MACRO_6),
-    COMBO(combo3, ST_MACRO_7),
+    COMBO(combo2, ST_MACRO_7),
+    COMBO(combo3, ST_MACRO_8),
 };
 
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodox_pretty(
@@ -202,10 +203,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_6:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_LBRC)SS_DELAY(5)  SS_TAP(X_RBRC)SS_DELAY(5)  SS_LSFT(SS_TAP(X_9))SS_DELAY(5)  SS_LSFT(SS_TAP(X_0))SS_DELAY(5)  SS_TAP(X_LEFT)SS_DELAY(5)  SS_TAP(X_LEFT)SS_DELAY(5)  SS_TAP(X_LEFT));
+      SEND_STRING(SS_TAP(X_G)SS_DELAY(5)  SS_TAP(X_O)SS_DELAY(5)  SS_TAP(X_SLASH));
     }
     break;
     case ST_MACRO_7:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_LBRC)SS_DELAY(5)  SS_TAP(X_RBRC)SS_DELAY(5)  SS_LSFT(SS_TAP(X_9))SS_DELAY(5)  SS_LSFT(SS_TAP(X_0))SS_DELAY(5)  SS_TAP(X_LEFT)SS_DELAY(5)  SS_TAP(X_LEFT)SS_DELAY(5)  SS_TAP(X_LEFT));
+    }
+    break;
+    case ST_MACRO_8:
     if (record->event.pressed) {
       SEND_STRING(SS_LCTL(SS_TAP(X_A))SS_DELAY(5)  SS_TAP(X_RBRC));
     }
