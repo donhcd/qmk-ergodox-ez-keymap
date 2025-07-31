@@ -27,14 +27,14 @@ enum tap_dance_codes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_EQUAL,
+    KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPC,
     KC_GRAVE,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TT(1),                                          KC_TRANSPARENT, KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,
     MT(MOD_LCTL, KC_TAB),KC_A,           KC_S,           KC_D,           MT(MOD_LSFT, KC_F),KC_G,                                                                           KC_H,           MT(MOD_LSFT, KC_J),KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,
     KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           LT(2, KC_V),    KC_B,           MO(2),                                          KC_TRANSPARENT, KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
-    LM(5,MOD_LGUI), KC_MEH,         KC_TRANSPARENT, MO(6),          MT(MOD_LCTL, KC_ESCAPE),                                                                                                MT(MOD_LSFT, KC_ESCAPE),MO(2),          MT(MOD_LGUI, KC_SPACE),KC_TRANSPARENT, ST_MACRO_0,
+    LM(5,MOD_LGUI), KC_MEH,         KC_TRANSPARENT, MO(6),          MT(MOD_LCTL, KC_ESCAPE),                                                                                                MT(MOD_LSFT, KC_ESCAPE),MO(2),          MT(MOD_LGUI, KC_SPACE),KC_BSPC,        ST_MACRO_0,
                                                                                                     KC_BSPC,        LM(3,MOD_LGUI), KC_SCRL,        KC_ESCAPE,
                                                                                                                     LGUI(KC_ENTER), LM(6,MOD_LGUI),
-                                                                                    MT(MOD_LSFT, KC_SPACE),MT(MOD_LGUI, KC_ENTER),KC_LEFT_ALT,    MO(6),          LT(3, KC_ENTER),KC_BSPC
+                                                                                    MT(MOD_LCTL, KC_SPACE),MT(MOD_LGUI, KC_ENTER),KC_LEFT_ALT,    MO(6),          LT(3, KC_ENTER),MT(MOD_LSFT, KC_BSPC)
   ),
   [1] = LAYOUT_ergodox_pretty(
     KC_GRAVE,       KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_AUDIO_VOL_DOWN,                                KC_AUDIO_VOL_UP,KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_LPRN,        KC_RPRN,        KC_MINUS,
@@ -131,23 +131,21 @@ combo_t key_combos[COMBO_COUNT] = {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LSFT, KC_F):
-            return TAPPING_TERM -60;
+            return TAPPING_TERM -45;
         case LT(2, KC_V):
             return TAPPING_TERM -60;
         case MT(MOD_LCTL, KC_ESCAPE):
             return TAPPING_TERM -65;
-        case MT(MOD_LSFT, KC_SPACE):
+        case MT(MOD_LCTL, KC_SPACE):
             return TAPPING_TERM -30;
         case MT(MOD_LGUI, KC_ENTER):
             return TAPPING_TERM -20;
         case MT(MOD_LSFT, KC_J):
-            return TAPPING_TERM -60;
+            return TAPPING_TERM -45;
         case LT(3, KC_ENTER):
             return TAPPING_TERM -20;
-        case KC_BSPC:
+        case MT(MOD_LSFT, KC_BSPC):
             return TAPPING_TERM + 50;
-        case MT(MOD_LCTL, KC_SPACE):
-            return TAPPING_TERM -65;
         default:
             return TAPPING_TERM;
     }
