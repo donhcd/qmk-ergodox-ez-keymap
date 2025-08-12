@@ -366,6 +366,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         // for some reason DUAL_FUNC_0 can't be used here
         case LT(12, KC_F1):
+        case MT(MOD_LSFT, KC_BSPC):
         case LT(3, KC_ENTER):
         case MT(MOD_LCTL, KC_ESCAPE):
         case MT(MOD_LSFT, KC_ESCAPE):
