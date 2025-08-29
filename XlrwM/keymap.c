@@ -29,8 +29,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     DM_PLY1,        KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPC,
     KC_GRAVE,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TT(1),                                          KC_TRANSPARENT, KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,
-    MT(MOD_LCTL, KC_TAB),KC_A,           KC_S,           KC_D,           MT(MOD_LSFT, KC_F),KC_G,                                                                           KC_H,           MT(MOD_LSFT, KC_J),KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,
-    KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           LT(2, KC_V),    KC_B,           MO(2),                                          KC_BSPC,        KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
+    MT(MOD_LCTL, KC_TAB),MT(MOD_LCTL, KC_A),KC_S,           KC_D,           MT(MOD_LSFT, KC_F),KC_G,                                                                           KC_H,           MT(MOD_LSFT, KC_J),KC_K,           KC_L,           MT(MOD_LCTL, KC_SCLN),KC_QUOTE,
+    KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           LT(2, KC_V),    KC_B,           MO(2),                                          KC_CAPS,        KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
     LM(5,MOD_LGUI), KC_MEH,         KC_TRANSPARENT, MO(6),          MT(MOD_LCTL, KC_ESCAPE),                                                                                                MT(MOD_LSFT, KC_ESCAPE),MO(2),          MT(MOD_LGUI, KC_SPACE),KC_BSPC,        ST_MACRO_0,
                                                                                                     KC_BSPC,        LM(3,MOD_LGUI), KC_SCRL,        KC_ESCAPE,
                                                                                                                     LGUI(KC_ENTER), LM(6,MOD_LGUI),
@@ -116,8 +116,8 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodo
   '*', '*', '*', '*'
 );
 
-const uint16_t PROGMEM combo0[] = { KC_A, KC_S, KC_D, MT(MOD_LSFT, KC_F), COMBO_END};
-const uint16_t PROGMEM combo1[] = { MT(MOD_LSFT, KC_J), KC_K, KC_L, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM combo0[] = { KC_Q, KC_W, KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo1[] = { KC_U, KC_I, KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_LPRN, KC_RPRN, KC_SCLN, KC_COLN, COMBO_END};
 const uint16_t PROGMEM combo3[] = { KC_TILD, KC_SLASH, KC_ASTR, KC_BSLS, COMBO_END};
 
