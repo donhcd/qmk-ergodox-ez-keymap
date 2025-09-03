@@ -14,8 +14,6 @@ enum custom_keycodes {
   ST_MACRO_4,
   ST_MACRO_5,
   ST_MACRO_6,
-  ST_MACRO_7,
-  ST_MACRO_8,
 };
 
 
@@ -29,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     DM_PLY1,        KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPC,
     KC_GRAVE,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TT(1),                                          KC_TRANSPARENT, KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,
-    MT(MOD_LCTL, KC_TAB),MT(MOD_LCTL, KC_A),KC_S,           LT(2, KC_D),    MT(MOD_LSFT, KC_F),KC_G,                                                                           KC_H,           MT(MOD_LSFT, KC_J),KC_K,           KC_L,           MT(MOD_LCTL, KC_SCLN),KC_QUOTE,
+    MT(MOD_LCTL, KC_TAB),MT(MOD_LCTL, KC_A),LT(6, KC_S),    LT(2, KC_D),    MT(MOD_LSFT, KC_F),KC_G,                                                                           KC_H,           MT(MOD_LSFT, KC_J),KC_K,           LT(6, KC_L),    MT(MOD_LCTL, KC_SCLN),KC_QUOTE,
     KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           LT(2, KC_V),    KC_B,           MO(2),                                          KC_CAPS,        KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
     LM(5,MOD_LGUI), KC_MEH,         KC_TRANSPARENT, MO(6),          MT(MOD_LCTL, KC_ESCAPE),                                                                                                MT(MOD_LSFT, KC_ESCAPE),MO(2),          MT(MOD_LGUI, KC_SPACE),KC_BSPC,        ST_MACRO_0,
                                                                                                     KC_BSPC,        LM(3,MOD_LGUI), KC_SCRL,        KC_ESCAPE,
@@ -88,9 +86,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [6] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    ST_MACRO_3,     ST_MACRO_4,     ST_MACRO_5,     KC_LABK,        KC_RABK,        KC_DQUO,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_MINUS,       KC_LCBR,        KC_RCBR,        KC_DLR,         KC_PIPE,        KC_TRANSPARENT,
-    ST_MACRO_6,     KC_EXLM,        KC_UNDS,        KC_PLUS,        KC_EQUAL,       KC_HASH,                                                                        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_SCLN,        KC_COLN,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TILD,        KC_SLASH,       KC_ASTR,        KC_BSLS,        KC_AMPR,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_PERC,        KC_LBRC,        KC_RBRC,        KC_GRAVE,       KC_AT,          KC_TRANSPARENT,
+    ST_MACRO_3,     ST_MACRO_4,     KC_GRAVE,       KC_LABK,        KC_RABK,        KC_DQUO,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_MINUS,       KC_LCBR,        KC_RCBR,        KC_DLR,         KC_PIPE,        KC_TRANSPARENT,
+    ST_MACRO_5,     KC_EXLM,        KC_TRANSPARENT, KC_UNDS,        KC_EQUAL,       KC_HASH,                                                                        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_TRANSPARENT, KC_COLN,        KC_TRANSPARENT,
+    ST_MACRO_6,     KC_TILD,        KC_SLASH,       KC_ASTR,        KC_BSLS,        KC_AMPR,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_PERC,        KC_LBRC,        KC_RBRC,        KC_PLUS,        KC_AT,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
@@ -118,14 +116,10 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodo
 
 const uint16_t PROGMEM combo0[] = { KC_Q, KC_W, KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_U, KC_I, KC_O, KC_P, COMBO_END};
-const uint16_t PROGMEM combo2[] = { KC_LPRN, KC_RPRN, KC_SCLN, KC_COLN, COMBO_END};
-const uint16_t PROGMEM combo3[] = { KC_TILD, KC_SLASH, KC_ASTR, KC_BSLS, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_ESCAPE),
     COMBO(combo1, LCTL(KC_A)),
-    COMBO(combo2, ST_MACRO_7),
-    COMBO(combo3, ST_MACRO_8),
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
@@ -285,22 +279,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_5:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_EQUAL)SS_DELAY(20)  SS_LSFT(SS_TAP(X_DOT)));
+      SEND_STRING(SS_TAP(X_G)SS_DELAY(5)  SS_TAP(X_O)SS_DELAY(5)  SS_TAP(X_SLASH));
     }
     break;
     case ST_MACRO_6:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_G)SS_DELAY(5)  SS_TAP(X_O)SS_DELAY(5)  SS_TAP(X_SLASH));
-    }
-    break;
-    case ST_MACRO_7:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_LBRC)SS_DELAY(5)  SS_TAP(X_RBRC)SS_DELAY(5)  SS_LSFT(SS_TAP(X_9))SS_DELAY(5)  SS_LSFT(SS_TAP(X_0))SS_DELAY(5)  SS_TAP(X_LEFT)SS_DELAY(5)  SS_TAP(X_LEFT)SS_DELAY(5)  SS_TAP(X_LEFT));
-    }
-    break;
-    case ST_MACRO_8:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LCTL(SS_TAP(X_A))SS_DELAY(5)  SS_TAP(X_RBRC));
+      SEND_STRING(SS_TAP(X_EQUAL)SS_DELAY(20)  SS_LSFT(SS_TAP(X_DOT)));
     }
     break;
 
