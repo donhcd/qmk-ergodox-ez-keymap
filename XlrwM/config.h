@@ -6,7 +6,7 @@
 #define PERMISSIVE_HOLD
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define SERIAL_NUMBER "XlrwM/9DRP63"
+#define SERIAL_NUMBER "XlrwM/v6mlAl"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 2
 
