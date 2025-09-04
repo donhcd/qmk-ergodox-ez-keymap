@@ -14,6 +14,7 @@ enum custom_keycodes {
   ST_MACRO_4,
   ST_MACRO_5,
   ST_MACRO_6,
+  ST_MACRO_7,
 };
 
 
@@ -112,7 +113,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_TAB),
     COMBO(combo1, KC_MINUS),
     COMBO(combo2, KC_UNDS),
-    COMBO(combo3, KC_ESCAPE),
+    COMBO(combo3, ST_MACRO_7),
     COMBO(combo4, OSM(MOD_LGUI)),
     COMBO(combo5, KC_PIPE),
     COMBO(combo6, KC_BSLS),
@@ -316,6 +317,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ST_MACRO_6:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_EQUAL)SS_DELAY(20)  SS_LSFT(SS_TAP(X_DOT)));
+    }
+    break;
+    case ST_MACRO_7:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_ESCAPE)SS_DELAY(5)  SS_TAP(X_ESCAPE));
     }
     break;
 
