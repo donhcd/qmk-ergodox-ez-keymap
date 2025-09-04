@@ -6,8 +6,8 @@
 #define PERMISSIVE_HOLD
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define SERIAL_NUMBER "XlrwM/qmYAg6"
+#define SERIAL_NUMBER "XlrwM/Yneg7P"
 #define LAYER_STATE_8BIT
-#define COMBO_COUNT 12
+#define COMBO_COUNT 10
 
 #define TAPPING_TERM_PER_KEY
