@@ -104,10 +104,9 @@ const uint16_t PROGMEM combo2[] = { KC_N, KC_M, COMBO_END};
 const uint16_t PROGMEM combo3[] = { LT(2, KC_D), MT(MOD_LSFT, KC_F), COMBO_END};
 const uint16_t PROGMEM combo4[] = { LT(6, KC_S), LT(2, KC_D), COMBO_END};
 const uint16_t PROGMEM combo5[] = { KC_Y, KC_U, COMBO_END};
-const uint16_t PROGMEM combo6[] = { KC_DOT, KC_SLASH, COMBO_END};
+const uint16_t PROGMEM combo6[] = { KC_DOT, KC_COMMA, COMBO_END};
 const uint16_t PROGMEM combo7[] = { LT(6, KC_L), MT(MOD_LCTL, KC_SCLN), COMBO_END};
-const uint16_t PROGMEM combo8[] = { LT(3, KC_R), KC_T, COMBO_END};
-const uint16_t PROGMEM combo9[] = { KC_E, LT(3, KC_R), COMBO_END};
+const uint16_t PROGMEM combo8[] = { KC_X, KC_C, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_TAB),
@@ -118,8 +117,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo5, KC_PIPE),
     COMBO(combo6, KC_BSLS),
     COMBO(combo7, KC_COLN),
-    COMBO(combo8, KC_CAPS),
-    COMBO(combo9, CW_TOGG),
+    COMBO(combo8, CW_TOGG),
 };
 
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodox_pretty(
