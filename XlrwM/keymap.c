@@ -118,7 +118,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo5, KC_PIPE),
     COMBO(combo6, KC_BSLS),
     COMBO(combo7, KC_COLN),
-    COMBO(combo8, CW_TOGG),
+    COMBO(combo8, KC_CAPS),
     COMBO(combo9, KC_DQUO),
 };
 
@@ -141,21 +141,19 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodo
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LSFT, KC_F):
-            return TAPPING_TERM -45;
+            return TAPPING_TERM + 5;
         case LT(2, KC_V):
-            return TAPPING_TERM -60;
+            return TAPPING_TERM -10;
         case MT(MOD_LCTL, KC_ESCAPE):
-            return TAPPING_TERM -65;
+            return TAPPING_TERM -15;
         case MT(MOD_LCTL, KC_SPACE):
-            return TAPPING_TERM -30;
+            return TAPPING_TERM + 20;
         case MT(MOD_LGUI, KC_ENTER):
-            return TAPPING_TERM -20;
+            return TAPPING_TERM + 30;
         case MT(MOD_LSFT, KC_J):
-            return TAPPING_TERM -45;
+            return TAPPING_TERM + 5;
         case LT(3, KC_ENTER):
-            return TAPPING_TERM -20;
-        case MT(MOD_LSFT, KC_BSPC):
-            return TAPPING_TERM -50;
+            return TAPPING_TERM + 30;
         default:
             return TAPPING_TERM;
     }

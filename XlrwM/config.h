@@ -3,12 +3,15 @@
 #undef DEBOUNCE
 #define DEBOUNCE 30
 
+#undef TAPPING_TERM
+#define TAPPING_TERM 150
+
 #define PERMISSIVE_HOLD
 
 #define COMBO_TERM 40
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define SERIAL_NUMBER "XlrwM/7vwPaw"
+#define SERIAL_NUMBER "XlrwM/RjWYpx"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 10
 
