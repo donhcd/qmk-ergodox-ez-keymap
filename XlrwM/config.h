@@ -8,8 +8,8 @@
 #define COMBO_TERM 40
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define SERIAL_NUMBER "XlrwM/dPnzXx"
+#define SERIAL_NUMBER "XlrwM/XbN4aB"
 #define LAYER_STATE_8BIT
-#define COMBO_COUNT 10
+#define COMBO_COUNT 9
 
 #define TAPPING_TERM_PER_KEY
