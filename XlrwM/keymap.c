@@ -27,7 +27,7 @@ enum tap_dance_codes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     DM_PLY1,        KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPC,
-    KC_GRAVE,       KC_Q,           KC_W,           LT(3, KC_E),    KC_R,           KC_T,           TT(1),                                          KC_TRANSPARENT, KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,
+    KC_GRAVE,       KC_Q,           KC_W,           KC_E,           LT(3, KC_R),    KC_T,           TT(1),                                          KC_TRANSPARENT, KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,
     MT(MOD_LCTL, KC_TAB),MT(MOD_LCTL, KC_A),LT(6, KC_S),    LT(2, KC_D),    MT(MOD_LSFT, KC_F),MT(MOD_LALT, KC_G),                                                                MT(MOD_LALT, KC_H),MT(MOD_LSFT, KC_J),MT(MOD_LGUI, KC_K),LT(6, KC_L),    MT(MOD_LCTL, KC_SCLN),KC_QUOTE,
     KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           LT(2, KC_V),    KC_B,           MO(2),                                          KC_CAPS,        KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
     LM(5,MOD_LGUI), KC_MEH,         KC_TRANSPARENT, MO(6),          MT(MOD_LCTL, KC_ESCAPE),                                                                                                MT(MOD_LSFT, KC_ESCAPE),MO(2),          MT(MOD_LGUI, KC_SPACE),KC_BSPC,        ST_MACRO_0,
@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [3] = LAYOUT_ergodox_pretty(
     QK_BOOT,        KC_TRANSPARENT, KC_LCBR,        KC_RCBR,        KC_LBRC,        KC_RBRC,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_W),     KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_T),     LGUI(KC_UP),                                    KC_TRANSPARENT, TD(DANCE_0),    LCTL(KC_U),     TD(DANCE_1),    KC_TRANSPARENT, KC_UP,          KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_W),     LCTL(KC_E),     KC_TRANSPARENT, LCTL(KC_T),     LGUI(KC_UP),                                    KC_TRANSPARENT, TD(DANCE_0),    LCTL(KC_U),     TD(DANCE_1),    KC_TRANSPARENT, KC_UP,          KC_TRANSPARENT,
     KC_TRANSPARENT, LCTL(KC_A),     KC_TRANSPARENT, LCTL(KC_D),     LCTL(KC_F),     KC_TRANSPARENT,                                                                 KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_C),     KC_TRANSPARENT, LCTL(KC_B),     LGUI(KC_DOWN),                                  KC_TRANSPARENT, KC_DOWN,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, QK_BOOT,
@@ -123,8 +123,8 @@ const uint16_t PROGMEM combo4[] = { LT(6, KC_S), LT(2, KC_D), COMBO_END};
 const uint16_t PROGMEM combo5[] = { KC_Y, KC_U, COMBO_END};
 const uint16_t PROGMEM combo6[] = { KC_DOT, KC_SLASH, COMBO_END};
 const uint16_t PROGMEM combo7[] = { LT(6, KC_L), MT(MOD_LCTL, KC_SCLN), COMBO_END};
-const uint16_t PROGMEM combo8[] = { KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM combo9[] = { KC_R, LT(3, KC_E), COMBO_END};
+const uint16_t PROGMEM combo8[] = { LT(3, KC_R), KC_T, COMBO_END};
+const uint16_t PROGMEM combo9[] = { KC_E, LT(3, KC_R), COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_TAB),
